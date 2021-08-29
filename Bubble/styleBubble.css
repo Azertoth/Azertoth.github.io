@@ -25,3 +25,7 @@ h3 {
     filter: hue-rotate(720deg); /* fait 2 tours du cercle chromatique */
   }
 }
+#countdown{
+  font-size: 6rem;
+  text-align: right;
+}

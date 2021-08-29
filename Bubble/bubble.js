@@ -1,6 +1,11 @@
 // declaration du compteur
 const counterDisplay = document.querySelector("h3");
 let counter = 0;
+const vitesse = 300;
+let StartingMinutes = 2;
+let time = StartingMinutes*60;
+const countdownEl = document.getElementById("countdown");
+
 // fonction des bulles
 const bubbleMaker = () =>{
 
@@ -35,5 +40,21 @@ const bubbleMaker = () =>{
     }, 8000);
 };
 
+// Compte à rebours
+function updateCountdown() {
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+    countdownEl.innerHTML = `${minutes} : ${seconds}`;
+    if (time > 0){
+        time--; 
+    } else {
+        countdownEl.innerHtml = `C'EST FINI !!`;
+    }
+}
+
 // intervalle de temps entre 2 bulles
-setInterval(bubbleMaker, 300);
+setInterval(bubbleMaker, vitesse);
+setInterval(updateCountdown, 1000);
+
